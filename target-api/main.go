@@ -24,6 +24,8 @@ func main() {
 	})
 
 	router.Get("/accounts/{id}", handlers.HandleGetAccount)
+	router.Get("/users", handlers.HandleGetUser)
+	router.Post("/login", handlers.HandleLogin)
 
 	log.Fatal(http.ListenAndServe(config.Load().Port, router))
 
