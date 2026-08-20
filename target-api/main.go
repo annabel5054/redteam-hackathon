@@ -11,6 +11,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/willzfrank/redteam-hackathon/target-api/internal/config"
+	"github.com/willzfrank/redteam-hackathon/target-api/internal/handlers"
 )
 
 func main() {
@@ -21,6 +22,8 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("OK"))
 	})
+
+	router.Get("/accounts/{id}", handlers.HandleGetAccount)
 
 	log.Fatal(http.ListenAndServe(config.Load().Port, router))
 
