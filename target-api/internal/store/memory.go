@@ -3,9 +3,10 @@ package store
 import "sync"
 
 type Account struct {
-	ID      string
-	OwnerID string
-	Balance int64
+	ID       string
+	OwnerID  string
+	Balance  int64
+	Nickname string
 }
 
 type User struct {
@@ -27,10 +28,10 @@ var (
 
 var (
 	muAccounts sync.Mutex
-	accounts   = map[string]Account{
-		"01": {ID: "01", OwnerID: "1234567890", Balance: 1000},
-		"02": {ID: "02", OwnerID: "9876543210", Balance: 500},
-		"03": {ID: "03", OwnerID: "1234567891", Balance: 2000},
+	accounts = map[string]Account{
+		"01": {ID: "01", OwnerID: "1234567890", Balance: 1000, Nickname: "Savings"},
+		"02": {ID: "02", OwnerID: "9876543210", Balance: 500, Nickname: "Checking"},
+		"03": {ID: "03", OwnerID: "1234567891", Balance: 2000, Nickname: "Vault"},
 	}
 )
 
